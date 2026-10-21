@@ -1,0 +1,43 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< co.edu.eseit:act06-logistica >--------------------
+[INFO] Building act06-logistica 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ act06-logistica ---
+[INFO] Deleting /workspace/scratch/5d5042ed43e6/entrega/ACT06_Logistica/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ act06-logistica ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/5d5042ed43e6/entrega/ACT06_Logistica/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ act06-logistica ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 9 source files with javac [debug release 21] to target/classes
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ act06-logistica ---
+[INFO] skip non existing resourceDirectory /workspace/scratch/5d5042ed43e6/entrega/ACT06_Logistica/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ act06-logistica ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.2:test (default-test) @ act06-logistica ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running co.edu.eseit.logistica.LogisticaTest
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.240 s -- in co.edu.eseit.logistica.LogisticaTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.569 s
+[INFO] Finished at: 2026-10-21T16:30:41-05:00
+[INFO] ------------------------------------------------------------------------

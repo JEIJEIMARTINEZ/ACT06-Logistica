@@ -1,0 +1,6 @@
+{
+  "tests": 31,
+  "java": "Amazon Corretto OpenJDK 21.0.12",
+  "extract": "Tests run: 31, Failures: 0, Errors: 0, Skipped: 0\nBUILD SUCCESS",
+  "mutation_extract": "Flete modificado temporalmente: 45000 -> 45001 COP\nTests run: 31, Failures: 7, Errors: 0, Skipped: 0\nBUILD FAILURE\nValor original restaurado y revisión limpia aprobada."
+}
