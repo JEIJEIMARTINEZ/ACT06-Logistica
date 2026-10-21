@@ -53,7 +53,8 @@ En IntelliJ, elija Open y seleccione pom.xml; configure Project SDK 21 y espere 
 
 - src/main/java/co/edu/eseit/logistica: siete clases de dominio, EstadoEnvio y Main.
 - src/test/java/co/edu/eseit/logistica/LogisticaTest.java: suite JUnit.
-- docs/modelo.puml y modelo.png: UML final editable y representación visual.
+- docs/modelo.puml y modelo.png: UML completo.
+- docs/Modelo_UML_Sencillo.puml y Modelo_UML_Sencillo.png: vista simplificada incluida en el informe actualizado; omite constructores, getters y operaciones auxiliares. Las clases, reglas y relaciones no cambian.
 - docs/modelo_antes.puml y modelo_intermedio.puml: evolución del modelo.
 - docs/trazabilidad.csv: matriz editable R1–R8 con los nombres exactos de las pruebas.
 - docs/refactor_1.diff y refactor_2.diff: cambios reales por etapa.

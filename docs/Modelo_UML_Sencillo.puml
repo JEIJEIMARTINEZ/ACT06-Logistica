@@ -1,0 +1,57 @@
+@startuml
+
+skinparam monochrome true
+skinparam shadowing false
+
+abstract class Envio {
+  - guia : String
+  - pesoKg : BigDecimal
+  - estado : EstadoEnvio
+  {abstract} + calcularCosto() : BigDecimal
+  + avanzarEstado(siguiente : EstadoEnvio) : void
+}
+
+class EnvioNacional {
+  + calcularCosto() : BigDecimal
+}
+
+class EnvioInternacional {
+  - arancel : BigDecimal
+  {static} - FLETE : BigDecimal
+  + calcularCosto() : BigDecimal
+}
+
+class Ruta {
+  - origen : String
+  - destino : String
+}
+
+class Tarifa {
+  - base : BigDecimal
+  - porKg : BigDecimal
+  ~ calcularComponente(pesoKg : BigDecimal) : BigDecimal
+}
+
+class RegistroEnvios {
+  - envios : Map<String, Envio>
+  + registrar(envio : Envio) : void
+  + listar() : List<Envio>
+  + calcularTotal() : BigDecimal
+  - validarRegistro(envio : Envio) : void
+}
+
+class EventoSeguimiento {
+  - estado : EstadoEnvio
+}
+
+Envio <|-- EnvioNacional
+Envio <|-- EnvioInternacional
+RegistroEnvios "0..*" --> "0..*" Envio : registra
+Envio "0..*" --> "1" Ruta : tiene
+Envio "0..*" --> "1" Tarifa : utiliza
+Envio "1" *-- "1..3" EventoSeguimiento : contiene
+
+' Organización visual
+EnvioNacional -[hidden]down-> Ruta
+EnvioInternacional -[hidden]down-> Tarifa
+@enduml
