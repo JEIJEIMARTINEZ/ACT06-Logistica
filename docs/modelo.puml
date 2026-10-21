@@ -52,6 +52,7 @@ class Tarifa {
 }
 class RegistroEnvios {
  - envios : Map<String, Envio>
+ - validarRegistro(envio : Envio) : void
  + registrar(envio : Envio) : void
  + listar() : List<Envio>
  + calcularTotal() : BigDecimal

@@ -8,11 +8,14 @@ import java.util.Map;
 public final class RegistroEnvios {
     private final Map<String, Envio> envios = new LinkedHashMap<>();
     public void registrar(Envio envio) {
+        validarRegistro(envio);
+        envios.put(envio.getGuia(), envio);
+    }
+    private void validarRegistro(Envio envio) {
         if (envio == null) throw new IllegalArgumentException("Envío obligatorio");
         if (envios.containsKey(envio.getGuia())) {
             throw new IllegalArgumentException("Guía duplicada: " + envio.getGuia());
         }
-        envios.put(envio.getGuia(), envio);
     }
     public List<Envio> listar() { return List.copyOf(envios.values()); }
     public BigDecimal calcularTotal() {
