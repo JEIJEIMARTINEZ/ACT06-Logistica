@@ -46,6 +46,7 @@ class Tarifa {
  - base : BigDecimal
  - porKg : BigDecimal
  + Tarifa(base, porKg)
+ ~ calcularComponente(pesoKg : BigDecimal) : BigDecimal
  + getBase() : BigDecimal
  + getPorKg() : BigDecimal
 }

@@ -1,0 +1,53 @@
+diff --git a/docs/modelo.puml b/docs/modelo.puml
+index 27f2559..343d124 100644
+--- a/docs/modelo.puml
++++ b/docs/modelo.puml
+@@ -46,6 +46,7 @@ class Tarifa {
+  - base : BigDecimal
+  - porKg : BigDecimal
+  + Tarifa(base, porKg)
++ ~ calcularComponente(pesoKg : BigDecimal) : BigDecimal
+  + getBase() : BigDecimal
+  + getPorKg() : BigDecimal
+ }
+diff --git a/src/main/java/co/edu/eseit/logistica/EnvioInternacional.java b/src/main/java/co/edu/eseit/logistica/EnvioInternacional.java
+index 219a584..0316175 100644
+--- a/src/main/java/co/edu/eseit/logistica/EnvioInternacional.java
++++ b/src/main/java/co/edu/eseit/logistica/EnvioInternacional.java
+@@ -16,7 +16,7 @@ public final class EnvioInternacional extends Envio {
+     }
+     public BigDecimal getArancel() { return arancel; }
+     @Override public BigDecimal calcularCosto() {
+-        return getTarifa().getBase().add(getPesoKg().multiply(getTarifa().getPorKg()))
++        return getTarifa().calcularComponente(getPesoKg())
+                 .add(FLETE).add(arancel).setScale(2, RoundingMode.HALF_UP);
+     }
+ }
+diff --git a/src/main/java/co/edu/eseit/logistica/EnvioNacional.java b/src/main/java/co/edu/eseit/logistica/EnvioNacional.java
+index 32b87a1..203b8cf 100644
+--- a/src/main/java/co/edu/eseit/logistica/EnvioNacional.java
++++ b/src/main/java/co/edu/eseit/logistica/EnvioNacional.java
+@@ -7,7 +7,7 @@ public final class EnvioNacional extends Envio {
+         super(guia, pesoKg, ruta, tarifa);
+     }
+     @Override public BigDecimal calcularCosto() {
+-        return getTarifa().getBase().add(getPesoKg().multiply(getTarifa().getPorKg()))
++        return getTarifa().calcularComponente(getPesoKg())
+                 .setScale(2, RoundingMode.HALF_UP);
+     }
+ }
+diff --git a/src/main/java/co/edu/eseit/logistica/Tarifa.java b/src/main/java/co/edu/eseit/logistica/Tarifa.java
+index e2000d3..37225db 100644
+--- a/src/main/java/co/edu/eseit/logistica/Tarifa.java
++++ b/src/main/java/co/edu/eseit/logistica/Tarifa.java
+@@ -13,6 +13,10 @@ public final class Tarifa {
+         this.base = base;
+         this.porKg = porKg;
+     }
++    // Uso interno: Envio ya validó el peso. R2.
++    BigDecimal calcularComponente(BigDecimal pesoKg) {
++        return base.add(pesoKg.multiply(porKg));
++    }
+     public BigDecimal getBase() { return base; }
+     public BigDecimal getPorKg() { return porKg; }
+ }

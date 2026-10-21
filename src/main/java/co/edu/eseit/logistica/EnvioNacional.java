@@ -7,7 +7,7 @@ public final class EnvioNacional extends Envio {
         super(guia, pesoKg, ruta, tarifa);
     }
     @Override public BigDecimal calcularCosto() {
-        return getTarifa().getBase().add(getPesoKg().multiply(getTarifa().getPorKg()))
+        return getTarifa().calcularComponente(getPesoKg())
                 .setScale(2, RoundingMode.HALF_UP);
     }
 }

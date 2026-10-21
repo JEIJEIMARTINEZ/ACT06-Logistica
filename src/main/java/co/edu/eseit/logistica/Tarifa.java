@@ -13,6 +13,10 @@ public final class Tarifa {
         this.base = base;
         this.porKg = porKg;
     }
+    // Uso interno: Envio ya validó el peso. R2.
+    BigDecimal calcularComponente(BigDecimal pesoKg) {
+        return base.add(pesoKg.multiply(porKg));
+    }
     public BigDecimal getBase() { return base; }
     public BigDecimal getPorKg() { return porKg; }
 }

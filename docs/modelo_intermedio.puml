@@ -1,0 +1,77 @@
+@startuml
+!pragma layout smetana
+skinparam monochrome true
+skinparam shadowing false
+hide empty members
+top to bottom direction
+abstract class Envio {
+ - guia : String
+ - pesoKg : BigDecimal
+ - ruta : Ruta
+ - tarifa : Tarifa
+ - estado : EstadoEnvio
+ - historial : List<EventoSeguimiento>
+ # Envio(guia, pesoKg, ruta, tarifa)
+ + getGuia() : String
+ + getPesoKg() : BigDecimal
+ + getRuta() : Ruta
+ + getTarifa() : Tarifa
+ + getEstado() : EstadoEnvio
+ + getHistorial() : List<EventoSeguimiento>
+ {abstract} + calcularCosto() : BigDecimal
+ + avanzarEstado(siguiente : EstadoEnvio) : void
+ + equals(otro : Object) : boolean
+ + hashCode() : int
+ + toString() : String
+}
+class EnvioNacional {
+ + EnvioNacional(guia, pesoKg, ruta, tarifa)
+ + calcularCosto() : BigDecimal
+}
+class EnvioInternacional {
+ - arancel : BigDecimal
+ {static} - FLETE : BigDecimal
+ + EnvioInternacional(guia, pesoKg, ruta, tarifa, arancel)
+ + getArancel() : BigDecimal
+ + calcularCosto() : BigDecimal
+}
+class Ruta {
+ - origen : String
+ - destino : String
+ + Ruta(origen, destino)
+ + getOrigen() : String
+ + getDestino() : String
+}
+class Tarifa {
+ - base : BigDecimal
+ - porKg : BigDecimal
+ + Tarifa(base, porKg)
+ ~ calcularComponente(pesoKg : BigDecimal) : BigDecimal
+ + getBase() : BigDecimal
+ + getPorKg() : BigDecimal
+}
+class RegistroEnvios {
+ - envios : Map<String, Envio>
+ + registrar(envio : Envio) : void
+ + listar() : List<Envio>
+ + calcularTotal() : BigDecimal
+}
+class EventoSeguimiento {
+ - estado : EstadoEnvio
+ ~ EventoSeguimiento(estado : EstadoEnvio)
+ + getEstado() : EstadoEnvio
+}
+enum EstadoEnvio {
+ CREADO
+ EN_TRANSITO
+ ENTREGADO
+}
+Envio <|-- EnvioNacional
+Envio <|-- EnvioInternacional
+RegistroEnvios "0..*" --> "0..*" Envio : registra
+Envio "0..*" --> "1" Ruta : recorre
+Envio "0..*" --> "1" Tarifa : utiliza
+Envio "1" *--> "1..3" EventoSeguimiento : crea y posee
+Envio ..> EstadoEnvio
+EventoSeguimiento ..> EstadoEnvio
+@enduml

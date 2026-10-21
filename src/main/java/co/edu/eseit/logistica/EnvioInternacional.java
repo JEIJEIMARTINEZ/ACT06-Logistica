@@ -16,7 +16,7 @@ public final class EnvioInternacional extends Envio {
     }
     public BigDecimal getArancel() { return arancel; }
     @Override public BigDecimal calcularCosto() {
-        return getTarifa().getBase().add(getPesoKg().multiply(getTarifa().getPorKg()))
+        return getTarifa().calcularComponente(getPesoKg())
                 .add(FLETE).add(arancel).setScale(2, RoundingMode.HALF_UP);
     }
 }
