@@ -58,10 +58,10 @@ En IntelliJ, elija Open y seleccione pom.xml; configure Project SDK 21 y espere 
 - docs/modelo_antes.puml y modelo_intermedio.puml: evolución del modelo.
 - docs/trazabilidad.csv: matriz editable R1–R8 con los nombres exactos de las pruebas.
 - docs/refactor_1.diff y refactor_2.diff: cambios reales por etapa.
-- docs/ACT06_DisenoProbado_EquipoLogistica.pdf: informe técnico (agregado al paquete final).
+- docs/ACT06_DisenoProbado_Logistica_Final.pdf: informe técnico (agregado al paquete final).
 - evidencias: resultados de línea base, dos refactorizaciones, defecto deliberado y revisión final; archivos XML JUnit y salida de Main.
 
-[Consultar informe técnico](docs/ACT06_DisenoProbado_EquipoLogistica.pdf)
+[Consultar informe técnico](docs/ACT06_DisenoProbado_Logistica_Final.pdf)
 
 ## Reglas del dominio
 
@@ -111,7 +111,7 @@ git push -u origin main
 ```
 
 4. Abra el enlace remoto y verifique código, docs, pruebas y evidencias; otorgue al docente acceso si el repositorio es privado.
-5. Pegue la URL real en la portada del Word, valide nombres y roles y vuelva a exportar el PDF como ACT06_DisenoProbado_EquipoLogistica.pdf. Reemplace también el PDF de docs y actualice el repositorio.
+5. Pegue la URL real en la portada del Word, valide nombres y roles y vuelva a exportar el PDF como ACT06_DisenoProbado_Logistica_Final.pdf. Reemplace también el PDF de docs y actualice el repositorio.
 6. Verifique que el enlace funciona para el evaluador. Realice una única entrega grupal del PDF y el enlace en la plataforma. Un ZIP o un bundle no reemplaza el enlace solicitado.
 
 ## Limitaciones
