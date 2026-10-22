@@ -1,14 +1,13 @@
 # Actividad 06 — Diseño probado de una solución orientada a objetos
 
-Prototipo académico de LogiTrans para registrar y cotizar envíos nacionales e internacionales, con seguimiento y pruebas de contrato.
+LogiTrans para registrar y cotizar envíos nacionales e internacionales, con seguimiento y pruebas de contrato.
 
 ## Integrantes
 
 - Jeison Martínez Ramírez
-- Mayerly Andrea Monroy Malagón
 - Valerie Pamela Suárez Corredor
 
-Distribución propuesta, pendiente de validar por el equipo: Jeison, implementación y ejecución; Mayerly, reglas y UML; Valerie, pruebas y trazabilidad. Esta distribución no acredita aportes ya realizados.
+Distribución propuesta, pendiente de validar por el equipo: Jeison, implementación,ejecución, reglas y UML; Valerie, pruebas y trazabilidad.
 
 ## Requisitos
 
