@@ -1,6 +1,6 @@
 # Actividad 06 — Diseño probado de una solución orientada a objetos
 
-LogiTrans para registrar y cotizar envíos nacionales e internacionales, con seguimiento y pruebas de contrato.
+LogiTrans, registrar y cotizar envíos nacionales e internacionales, con seguimiento y pruebas de contrato.
 
 ## Integrantes
 
